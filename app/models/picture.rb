@@ -29,9 +29,9 @@ class Picture < ActiveRecord::Base
 
 
 
+  default_scope { order("priority ASC") }
 
-
-  before_save do
+  before_create do
 
     ultimo = Picture.where(:car_id => self.car_id).last()
 

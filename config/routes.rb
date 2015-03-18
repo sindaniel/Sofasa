@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :pictures
   end
 
+  get 'pictures/sort' => 'pictures#sort'
+
   resources :generals
 
 
