@@ -36,9 +36,26 @@ class Picture < ActiveRecord::Base
     ultimo = Picture.where(:car_id => self.car_id).last()
 
     if ultimo.nil?
-      self.position = 1
+      self.priority = 1
     else
-      self.position = ultimo.position+1
+      self.priority = ultimo.priority+1
+    end
+
+  end
+
+  after_destroy do
+
+
+    pictures = Picture.where(:car_id => self.car_id).all
+
+    puts YAML::dump(pictures)
+
+    numero = 1
+    pictures.each do |value|
+
+    Picture.find(value.id).update_attribute(:priority,numero)
+    numero = numero +1
+
     end
 
   end

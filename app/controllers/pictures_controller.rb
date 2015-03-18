@@ -1,9 +1,15 @@
 class PicturesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @pictures = Picture.all
+    @pictures = Picture.where(car_id: params[:car_id])
     @tiempoGeneral = General.find_by_id(1)
     @car = Car.find(params[:car_id])
+
+
+
+
+
+
 
 
   end
