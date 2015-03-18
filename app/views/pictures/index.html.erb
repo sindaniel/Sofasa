@@ -1,0 +1,125 @@
+<div id="page-wrapper">
+
+  <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          Imagenes
+        </h1>
+
+      </div>
+    </div>
+    <!-- /.row -->
+
+
+
+
+
+    <% if flash[:notice] %>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="alert alert-info alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <%= flash[:notice] %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="row">
+
+
+
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-car fa-fw"></i> <%= @car.name %> </h3>
+            <h4>Tiempo: <%= (Time.mktime(0)+ @tiempoGeneral.value.to_i ).strftime("%M:%S") %> (<%=  @tiempoGeneral.value.to_i  %>'')</h4>
+            <%
+               @restotiempo =  @tiempoGeneral.value.to_i-@pictures.sum(:time)
+
+               @cuentasi =@pictures.count(:time)
+               @cuentano = @pictures.count - @pictures.count(:time)
+               if @cuentano == 0
+                @cuentano = 1
+               end
+
+               @promedio = @restotiempo  / @cuentano
+
+               @mod = @restotiempo  % @cuentano
+
+            %>
+            <p>
+              <%= @pictures.count %>
+              Promedio: <%= @promedio %> <br/>
+              Tiempo sobrante: <%= @mod %>
+            </p>
+          </div>
+          <div class="panel-body">
+            <p>
+
+              <%= link_to 'Agregar Imagen', new_car_picture_path,  :class=>'btn btn-info',method: :get %>
+            </p>
+            <table class="table">
+
+
+              <% @pictures.each_with_index do |item, index|  %>
+                  <tr>
+                    <td>
+                      <%= item.id %>
+                    </td>
+
+                    <td>
+                      <% if !item.time.nil? %>
+                          <% if index == @pictures.size - 1 and @mod > 0 %>
+                              <%= item.time %> +   <%= @mod %> = <%= item.time+@mod %>''
+                          <% else %>
+                              <%= item.time %>''
+                          <% end %>
+                      <% else %>
+
+
+                          <% if index == @pictures.size - 1 and @mod > 0 %>
+                              <%= @promedio %> +   <%= @mod %> = <%= @promedio+@mod %>''
+                          <% else %>
+                              <%= @promedio %>''
+                          <% end %>
+
+
+                      <% end %>
+
+
+
+                    </td>
+
+
+                    <td>
+                      <%= image_tag item.picture1(:home), :class=>'img-thumbnail', size: "200x200" %>
+                    </td>
+
+                    <td>
+                      <%= link_to 'Editar', edit_car_picture_path(item.car_id, item.id), :class=>'btn btn-info',method: :get %>
+
+                      <%= link_to 'Eliminar', {:controller => 'pictures', :action => 'destroy', :id => item.id}, :data => {:confirm => 'Estas seguro de eliminar este elemento?'}, :method => :delete, :class=>'btn btn-danger' %>
+
+
+
+                    </td>
+                  </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+

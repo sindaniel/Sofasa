@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  picture1: 
+  picture2: 
+  position1: 1
+  position2: 1
+  order: 1
+  time: 1
+
+two:
+  picture1: 
+  picture2: 
+  position1: 1
+  position2: 1
+  order: 1
+  time: 1
