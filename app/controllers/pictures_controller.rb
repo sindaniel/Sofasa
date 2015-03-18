@@ -59,8 +59,6 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-
-
     @picture = Picture.find(params[:id])
     if @picture.destroy
       flash[:notice] = 'Información eliminada correctamente'
@@ -68,9 +66,14 @@ class PicturesController < ApplicationController
     else
       render 'new'
     end
+  end
 
 
-
+  def sort
+    params[:order].each do |key,value|
+      Picture.find(value[:id]).update_attribute(:priority,value[:position])
+    end
+    render :nothing => true
   end
 
 

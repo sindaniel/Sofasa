@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317145629) do
+ActiveRecord::Schema.define(version: 20150318153834) do
 
   create_table "cars", force: true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150317145629) do
     t.datetime "picture2_updated_at"
     t.integer  "position"
     t.integer  "car_id"
+    t.integer  "priority"
   end
 
   create_table "users", force: true do |t|
