@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
   def index
+    redirect_to cars_path
+  end
+  def consulta
 
 
     product = Array.new

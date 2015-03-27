@@ -29,6 +29,10 @@ class PicturesController < ApplicationController
       render 'new'
     end
 
+#=)
+
+
+
 
 
 

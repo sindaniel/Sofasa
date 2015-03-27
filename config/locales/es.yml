@@ -196,4 +196,8 @@ es:
       long: "%A, %d de %B de %Y a las %I:%M %p"
       short: "%d de %b a las %H:%M hrs"
     pm: pm
+  devise:
+    sessions:
+      user:
+        signed_in: "Bienvenido"
 
