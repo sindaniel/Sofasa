@@ -1,8 +1,26 @@
 class GeneralsController < ApplicationController
   def index
-
       @generals = General.all
   end
+
+  def new
+    @generals = General.new
+  end
+
+
+  def create
+
+    @generals = General.new(allowed_params)
+    if @generals.save
+      redirect_to generals_path
+    else
+      render 'new'
+    end
+
+
+  end
+
+
 
   def edit
     @generals = General.find(params[:id])

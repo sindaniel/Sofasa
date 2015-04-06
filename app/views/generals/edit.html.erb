@@ -45,7 +45,7 @@
 
 
                     <div class="form-group">
-                      <%= f.label :value, 'Nombre' %>
+                      <%= f.label :value, 'Segundos' %>
                       <%= f.text_field :value, :class =>'form-control required'  %>
                     </div>
 
@@ -55,6 +55,20 @@
 
 
 
+                <%= javascript_include_tag 'jquery.validate' %>
+                <script>
+
+
+                    var ready;
+                    ready = function() {
+                        $("#general_value").validate();
+                    };
+
+                    $(document).ready(ready);
+                    $(document).on('page:load', ready);
+
+
+                </script>
 
 
                 <div class="row">

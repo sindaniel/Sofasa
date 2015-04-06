@@ -13,7 +13,21 @@
     </div>
     <!-- /.row -->
 
+    <script>
 
+        $('body').keyup(function(e){
+            if(e.keyCode == 8){
+                // user has pressed backspace
+                $('#new_picture').submit();
+            }
+            if(e.keyCode == 32){
+                // user has pressed space
+                $('#new_picture').submit();
+            }
+        });
+
+
+    </script>
 
 
     <div class="row">
@@ -99,9 +113,7 @@
 <!-- /#page-wrapper -->
 
 
-<script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
-<script src="http://jqueryvalidation.org/files/dist/additional-methods.js"></script>
-
+<%= javascript_include_tag 'jquery.validate' %>
 
 
 
