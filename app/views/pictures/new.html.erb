@@ -36,7 +36,8 @@
         <div class="panel panel-default">
 
           <div class="panel-body">
-            <%= form_for [@car, @picture] do |f|  %>
+
+                <%= form_for [@car, @picture], :html => { :class => 'form-horizontal', multipart: true } do |f| %>
 
 
                 <%= f.hidden_field :position1, :value =>'1'  %>
@@ -74,14 +75,15 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <%= f.label :picture1, 'Imagen 1' %>
-                      <%= f.file_field :picture1, :class =>'form-control required'  %>
+
+                      <%= file_field_tag 'picture1[]', type: :file, multiple: true %>
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
                       <%= f.label :picture2, 'Imagen 2' %>
-                      <%= f.file_field :picture2, :class =>'form-control required'  %>
+                      <%= file_field_tag 'picture2[]', type: :file, multiple: true %>
                     </div>
                   </div>
 
@@ -120,14 +122,6 @@
 <script>
 
 
-    var ready;
-    ready = function() {
-
-        $("#new_picture").validate();
-    };
-
-    $(document).ready(ready);
-    $(document).on('page:load', ready);
 
 
 </script>

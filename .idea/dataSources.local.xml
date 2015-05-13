@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails sofasa: development" uuid="1fda82af-1307-42b4-8934-de36c5c12753">
+      <user-name>root</user-name>
+    </data-source>
+    <data-source name="Rails sofasa: test" uuid="88c149b8-3b17-436f-93e0-48735e46779c">
+      <user-name>root</user-name>
+    </data-source>
+    <data-source name="Rails sofasa: production" uuid="8e4cf644-c78a-4f40-8b68-4a2bbb91ade8">
+      <user-name>sofasa</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff9dfe5dfecdfebdff9dfebdff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>

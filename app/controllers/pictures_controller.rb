@@ -17,17 +17,36 @@ class PicturesController < ApplicationController
   def create
 
 
-    @car = Picture.find_by_id(params[:car_id])
 
-    @picture = Picture.new(allowed_params)
+    if params[:picture1]
+      # The magic is here ;)
+      cuenta = 0;
+      params[:picture1].each { |image|
+       # @gallery.pictures.create(image: image)
+       # @gallery.pictures.create(image: image)
 
-    @picture.car_id = params[:car_id]
-    flash[:notice] = 'Información creada correctamente'
-    if @picture.save
+
+
+        @car = Picture.find_by_id(params[:car_id])
+
+        @picture = Picture.new(allowed_params)
+
+        @picture.car_id = params[:car_id]
+        @picture.picture1 = image
+        @picture.picture2 = image
+        flash[:notice] = 'Información creada correctamente'
+         @picture.save
+
+
+
+      }
+
       redirect_to car_pictures_path(params[:car_id])
-    else
-      render 'new'
+
     end
+
+
+
 
 #=)
 
