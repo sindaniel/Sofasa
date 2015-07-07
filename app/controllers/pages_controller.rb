@@ -46,7 +46,8 @@ class PagesController < ApplicationController
             product1.push  Array.new(['picture' => item.picture1, 'time' => item.time+@mod])
             product2.push  Array.new(['picture' => item.picture2, 'time' => item.time+@mod])
           else
-            product1.push  Array.new(['picture' => item.picture1, 'time' =>item.time])
+            product
+            1.push  Array.new(['picture' => item.picture1, 'time' =>item.time])
             product2.push  Array.new(['picture' => item.picture2, 'time' =>item.time])
           end
 
